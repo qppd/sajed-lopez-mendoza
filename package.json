@@ -1,0 +1,28 @@
+{
+  "name": "sajed-mendoza-portfolio",
+  "version": "1.0.0",
+  "description": "Sajed Lopez Mendoza's Portfolio - Vercel Deployment",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Build complete'",
+    "start": "npx serve .",
+    "preview": "npx serve ."
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "web-development",
+    "machine-learning",
+    "iot",
+    "full-stack"
+  ],
+  "author": "Sajed Lopez Mendoza",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

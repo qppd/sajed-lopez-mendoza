@@ -1,0 +1,276 @@
+/* ========== Global Styles ========== */
+body {
+  background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+}
+
+html,
+body {
+  overflow-y: scroll; /* still allows scrolling */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* WebKit-based browsers (Chrome, Safari, Edge) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+/* ========== Particles & Fog Effects ========== */
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+.fog {
+  pointer-events: none;
+  background: url("https://img.freepik.com/free-vector/ground-surface-with-abstract-light-cracks_107791-26194.jpg?semt=ais_hybrid&w=740");
+  background-size: cover;
+  opacity: 0.1;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  animation: fogmove 120s linear infinite;
+}
+
+@keyframes fogmove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 2000px 0;
+  }
+}
+
+/* ========== Mirror Reflection ========== */
+.mirror::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  transform: scaleY(-1);
+  opacity: 0.3;
+  filter: blur(2px);
+  animation: ripple 12s ease-in-out infinite;
+}
+
+@keyframes ripple {
+  0%,
+  100% {
+    transform: scaleY(-1) translateX(0);
+  }
+  50% {
+    transform: scaleY(-1) translateX(20px);
+  }
+}
+
+/* ========== Logo ========== */
+.logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 120px;
+  cursor: pointer;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.logo-img {
+  width: 70px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo-wrapper:hover .logo-img {
+  transform: rotateY(10deg) rotateX(10deg);
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 2px #00c3ff);
+  }
+  100% {
+    filter: drop-shadow(0 0 4px #00c3ff) drop-shadow(0 0 30px #00c3ff);
+  }
+}
+
+/* ========== Tech Card ========== */
+.tech-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 20px #00c3ff;
+  background: #2d3748;
+}
+
+/* ========== Navigation ========== */
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #00c3ff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link:hover {
+  color: #00c3ff;
+}
+
+/* ========== Typewriter Effect ========== */
+.typewriter-wrapper {
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: min-height 0.3s ease;
+  /* Removed border-right: 2px solid white; */
+}
+
+.typewriter-text {
+  min-height: 2.5rem;
+  display: inline-block;
+}
+
+@keyframes blinkCursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ========== Neon Text Animation ========== */
+.neon-pulse {
+  color: #0ff;
+  text-shadow: 0 0 1px #0ff, 0 0 4px #0ff, 0 0 6px #0ff;
+  animation: pulseNeon 3s ease-in-out infinite;
+}
+
+@keyframes pulseNeon {
+  0% {
+    text-shadow: 0 0 2px #0ff, 0 0 4px #0ff, 0 0 6px #0ff;
+  }
+  50% {
+    text-shadow: 0 0 1px #0ff, 0 0 2px #0ff, 0 0 3px #0ff;
+  }
+  100% {
+    text-shadow: 0 0 2px #0ff, 0 0 4px #0ff, 0 0 6px #0ff;
+  }
+}
+
+/* ========== Hero Animations ========== */
+@keyframes slideFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-animate-exit {
+  animation: slideFadeOut 0.8s ease forwards;
+}
+
+.hero-animate-enter {
+  animation: slideFadeIn 0.8s ease forwards;
+}
+
+/* ========== Back To Top Button ========== */
+#backToTopBtn {
+  opacity: 0;
+}
+
+#backToTopBtn.show {
+  display: block;
+  opacity: 1;
+}
+
+/* ============== Frontend Development Animations ==================*/
+
+.slider-track {
+  display: flex;
+  width: 100%; /* twice the original content */
+  animation: scroll-left 20s linear infinite;
+}
+
+.slider-content {
+  display: flex;
+  gap: 2.5rem;
+  min-width: 100%; /* ensures both halves match width */
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ============== Map ==================*/
+#map {
+  width: 100% !important;
+  height: 250px !important;
+  max-width: 100%;
+  min-height: 200px;
+  border-radius: 0.75rem; /* rounded-xl */
+  border: 2px solid #3b82f6; /* border-blue-500 */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
