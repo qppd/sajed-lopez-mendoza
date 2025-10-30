@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Test</title>
+    <style>
+        body { background: #1a1a1a; color: white; font-family: Arial; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #333; }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Debug Test</h1>
+    
+    <div class="test-section">
+        <h2>Image Loading Test</h2>
+        <img src="images/qppdlogo_nobg.png" alt="Logo Test" style="max-width: 100px;">
+        <img src="images/sajedlopezmendoza.jpg" alt="Profile Test" style="max-width: 100px;">
+        <img src="images/blood_reserve/1.png" alt="Gallery Test" style="max-width: 100px;">
+    </div>
+    
+    <div class="test-section">
+        <h2>Font Awesome Test</h2>
+        <i class="fab fa-html5" style="font-size: 2rem; color: orange;"></i>
+        <i class="fab fa-css3-alt" style="font-size: 2rem; color: blue;"></i>
+        <i class="fab fa-js" style="font-size: 2rem; color: yellow;"></i>
+    </div>
+    
+    <div class="test-section" id="gallery-grid">
+        <h2>Gallery Grid Test</h2>
+        <p>Gallery cards will be added here by JavaScript...</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Text Effects Test</h2>
+        <h3 class="baffle-text">Sajed Lopez Mendoza</h3>
+        <p class="typewriter-text"></p>
+    </div>
+
+    <!-- External Dependencies -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Simple test to verify JS is working
+        console.log("Debug page loaded");
+        console.log("Available libraries:", {
+            AOS: typeof AOS,
+            baffle: typeof baffle
+        });
+    </script>
+</body>
+</html>
