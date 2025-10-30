@@ -2,19 +2,19 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.html",
+      "src": "**",
       "use": "@vercel/static"
     }
   ],
   "rewrites": [
     {
-      "source": "\\/(.*)",
-      "destination": "\/index.html"
+      "source": "/((?!images|css|js|assets).*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/(.*\\.(png|jpg|jpeg|gif|svg|ico|css|js))",
       "headers": [
         {
           "key": "Cache-Control",
