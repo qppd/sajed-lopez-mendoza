@@ -1,15 +1,22 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "**",
-      "use": "@vercel/static"
-    }
-  ],
   "rewrites": [
     {
-      "source": "/((?!images|css|js|assets).*)",
+      "source": "/((?!api/|images/|css/|js/|assets/|_next/|.*\\.).*)",
       "destination": "/index.html"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/js/(.*)",
+      "dest": "/js/$1"
+    },
+    {
+      "src": "/css/(.*)",
+      "dest": "/css/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/images/$1"
     }
   ],
   "headers": [

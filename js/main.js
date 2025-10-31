@@ -1,50 +1,36 @@
 // ========== External Libraries Initialization ==========
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM Content Loaded - Starting initialization...");
-    
     // Initialize AOS (Animate On Scroll)
     if (typeof AOS !== 'undefined') {
         AOS.init({ duration: 800, once: true });
-        console.log("AOS initialized");
-    } else {
-        console.error("AOS library not loaded");
     }
 
     // Create floating particles
     createFloatingParticles();
-    console.log("Floating particles created");
     
     // Initialize parallax effect
     initializeParallax();
-    console.log("Parallax initialized");
     
     // Initialize GitHub repositories
     loadGitHubRepositories();
-    console.log("GitHub repos loading...");
     
     // Initialize gallery
     initializeGallery();
-    console.log("Gallery initialized");
     
     // Initialize typewriter effect
     initializeTypewriter();
-    console.log("Typewriter initialized");
     
     // Initialize baffle text effect
     initializeBaffleEffect();
-    console.log("Baffle effect initialized");
     
     // Initialize smooth scrolling
     initializeSmoothScrolling();
-    console.log("Smooth scrolling initialized");
     
     // Initialize back to top button
     initializeBackToTop();
-    console.log("Back to top initialized");
     
     // Initialize map
     initializeMap();
-    console.log("Map initialization attempted");
 });
 
 // ========== Particles System ==========
@@ -146,19 +132,11 @@ let currentIndex = 0;
 
 function initializeGallery() {
     const galleryGrid = document.getElementById("gallery-grid");
-    console.log("Gallery grid element:", galleryGrid);
     
-    if (!galleryGrid) {
-        console.error("Gallery grid element not found!");
-        return;
-    }
-    
-    console.log("Number of gallery projects:", galleryImages.length);
+    if (!galleryGrid) return;
     
     galleryImages.forEach((project, index) => {
         if (project.images.length === 0) return;
-        
-        console.log(`Creating gallery card for: ${project.name}`);
         
         const mainImage = `images/${project.folder}/${project.images[0]}`;
         
@@ -181,8 +159,6 @@ function initializeGallery() {
         
         galleryGrid.appendChild(galleryCard);
     });
-    
-    console.log("Gallery cards added to grid");
 }
 
 function openModal(projectIndex) {
@@ -232,11 +208,7 @@ let typewriterState = {
 
 function initializeTypewriter() {
     const typeEl = document.querySelector(".typewriter-text");
-    console.log("Typewriter element found:", typeEl);
-    if (!typeEl) {
-        console.error("Typewriter element not found!");
-        return;
-    }
+    if (!typeEl) return;
     setTimeout(() => typewriterEffect(), 4000); // Start typewriter after baffle
 }
 
@@ -276,13 +248,7 @@ function initializeBaffleEffect() {
     const name = document.querySelector(".baffle-text");
     const typewriter = document.querySelector(".typewriter-text");
 
-    console.log("Baffle elements:", { hero, name, typewriter });
-    console.log("Baffle library available:", typeof baffle !== 'undefined');
-
-    if (!name || typeof baffle === 'undefined') {
-        console.error("Baffle element or library not found!");
-        return;
-    }
+    if (!name || typeof baffle === 'undefined') return;
 
     // Initialize baffle effect
     baffleInstance = baffle(".baffle-text");
