@@ -2,3 +2,8 @@ debug.html
 *.log
 .DS_Store
 Thumbs.db
+node_modules
+.git
+README.md
+DEPLOYMENT_GUIDE.md
+TESTING.md
