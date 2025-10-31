@@ -1,7 +1,9 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/((?!api/|images/|css/|js/|assets/|_next/|.*\\.).*)",
+      "source": "/((?!\\.well-known|api/|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml)(?![^/]*\\.).*)",
       "destination": "/index.html"
     }
   ],
